@@ -1,7 +1,7 @@
+// this script is used to display the content of the page
+//
 
-// ^%^ Split the content from one post into an array of lines. ^$^ Split the post 
-// raw content from the server.
-// write hello world if the content from html is not empty
+// get the data from the local storage where the content_socket_client.js stored it
     var raw_content =  localStorage.getItem('raw_data');
      // seperate the post from the raw content.
     var user_posts = raw_content.split('^$^');
