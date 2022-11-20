@@ -2,10 +2,8 @@
 // ^%^ Split the content from one post into an array of lines. ^$^ Split the post 
 // raw content from the server.
 // write hello world if the content from html is not empty
-
-function split_content(raw_content) {
-
-    // seperate the post from the raw content.
+    var raw_content =  localStorage.getItem('raw_data');
+     // seperate the post from the raw content.
     var user_posts = raw_content.split('^$^');
 
     // display every post.
@@ -33,5 +31,3 @@ function split_content(raw_content) {
                 }
         }
     }
-}
-
