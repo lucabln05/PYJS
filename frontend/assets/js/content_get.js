@@ -6,11 +6,13 @@ const ws = new WebSocket('ws://localhost:10');  // connect to ws server
 ws.addEventListener('open', () => {
     console.log('connected to server');
     ws.send('get_post'); // send server that we want to get the posts
+    ws.CLOSED;
 });
 
  //get the message from the server and display it on the page id="content"
  ws.onmessage = function(e) {
     localStorage.setItem('raw_data', e.data);   // store the message in local storage
+    ws.CLOSED;
 }
 
 

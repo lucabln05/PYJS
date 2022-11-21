@@ -7,6 +7,7 @@
     <title>PYJS</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/button.css">
     
 </head>
 
@@ -15,18 +16,39 @@
         <div class="container-fluid"><a class="navbar-brand" href="#">PYJS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a id="test" class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a id="home" class="nav-link active" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="add_code/add_code.html">Share</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://github.com/lucabln05/PYJS">GitHub</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div style="padding: 0px;padding-bottom: 5px;margin-bottom: 182px;color: white;background-color: rgb(13, 17, 23);padding-top: 10px;padding-right: 5px;padding-left: 5px;">
+   
+<div class="mainbackground" >
+    <div id="content_div" style="padding: 0px;padding-bottom: 5px;margin-bottom: 182px;color: white;background-color: rgb(13, 17, 23);padding-top: 10px;padding-right: 5px;padding-left: 5px;">
         <script src="assets/js/content_get.js"></script>
+
         <script src="assets/js/display_content.js"></script>
+
+        <script src="assets/js/load_more.js"></script>
+        <button class="glow-on-hover" type="button" onclick="load_more();">LOAD MORE!</button>
     </div>
-  
+    
+</div>
+        <style>
+        @media (min-width: 1200px) {
+            #content_div {
+                margin: auto;
+                width: 25%;
+
+            }
+        }
+            .mainbackground {
+                background-color: rgb(13, 17, 23);
+            }
+    </style>
+
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 

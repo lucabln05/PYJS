@@ -1,10 +1,10 @@
 post content from server to client format
 
-username /--/ language /--/ likes /--/ date /--/ content (split by ^#^) ^$^ NEW post
+post_id /--/ username /--/ language /--/ likes /--/ date /--/ title /--/content (split by ^#^) ^$^ NEW post
 
 post content add from server to client format
 
-add_post /--/ username /--/ language /--/ content (split by ^#^)
+add_post /--/ username /--/ language /--/ title  /--/content (split by ^#^)
 
 
 
