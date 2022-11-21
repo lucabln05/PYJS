@@ -1,0 +1,14 @@
+post content from server to client format
+
+username /--/ language /--/ likes /--/ date /--/ content (split by ^#^) ^$^ NEW post
+
+post content add from server to client format
+
+send_post /--/ username /--/ language /--/ content (split by ^#^)
+
+
+
+Commants from JS to Python server
+
+get_post ---> Server send client post
+add_post ---> Client send server post and server add them to database

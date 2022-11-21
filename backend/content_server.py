@@ -3,13 +3,20 @@
 import asyncio
 import websockets
 
+from database_connector import get_post
+
 import time
 print(time.time())
 
 async def echo(websocket):
     async for message in websocket:
-        print(message)
-        await websocket.send('lucabln ^%^ PYTHON 3.10 ^%^ print("Hello World!") ^%^ for i in range(10): ^%^ print(i) ^$^github_user ^%^ JavaScript ^%^ console.log("Hello Wold") ^%^ for (i in range(10)): ^%^ console.log(i)^$^elon_musk ^%^ GO ^%^ package main ^%^ import "fmt" ^%^ func main() { ^%^ fmt.Println("Hello World!") ^%^ }')
+        echo.message = message
+        check = message.startswith("add_post")
+        if (echo.message == 'get_post'):
+            get_post()
+            await websocket.send(get_post.content)
+        elif check == True:
+            print('add_post')
 
 async def main():
     async with websockets.serve(echo, "localhost", 10):

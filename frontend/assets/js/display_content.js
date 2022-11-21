@@ -10,7 +10,7 @@
     for (post in user_posts) {
         document.write('</br>'); // Add a line break between posts.
         // ^%^ Split the post into an array of lines.
-        var post_content = user_posts[post].split('^%^');
+        var post_content = user_posts[post].split('/--/');
 
         /* write the content to the page */
         for (line in post_content) {
@@ -23,10 +23,22 @@
                 case '1':
                     document.write('<h6 id="code_language'+ line +'" style="margin-right: 237px;">' + post_content[line] + '</h6>')
                     break;
-            /* display the code */
+                /* display the likes*/
+                case '2':
+                    document.write('<h6 id="likes'+ line +'" style="margin-right: 237px;">Likes: ' + post_content[line] + '</h6>')
+                    break;
+                /* display the createn date */
+                case '3':
+                    document.write('<h6 id="created_date'+ line +'" style="margin-right: 237px;">' + post_content[line] + '</h6>')
+                    break;
+                    
+                /* display the code */
                 default:
-                    var line_display = line-1 + ' ' + post_content[line];
-                    document.write('<div id="code_content'+ line +'" style="padding-left: 10px;padding-bottom: 2px; padding-top: 5px; background-color: rgb(22, 27, 34);color: white;">' + line_display + '</div>');
+                    var code_split = post_content[line].split('^#^');
+                    for (code_line in code_split) {
+                        var line_display = code_line + code_split[code_line];
+                        document.write('<div id="code_content'+ code_line +'" style="padding-left: 10px;padding-bottom: 2px; padding-top: 5px; background-color: rgb(22, 27, 34);color: white;">' + line_display + '</div>');
+                    }
                     break;
                 }
         }
