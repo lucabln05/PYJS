@@ -35,5 +35,5 @@ def add_post(post_content):
     connector()
     server_command, username, content_language, content = post_content.split('/--/')
     connector.mycursor.execute(f'INSERT INTO post (username, content_language, content, likes, createt_at) VALUES ("{username}", "{content_language}", "{content}", 0, "{now}")')
+    connector.mydb.commit()
 
-add_post('send_post /--/ username /--/ language /--/ content ^#^ line 2')

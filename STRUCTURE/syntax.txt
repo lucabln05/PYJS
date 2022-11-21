@@ -4,7 +4,7 @@ username /--/ language /--/ likes /--/ date /--/ content (split by ^#^) ^$^ NEW 
 
 post content add from server to client format
 
-send_post /--/ username /--/ language /--/ content (split by ^#^)
+add_post /--/ username /--/ language /--/ content (split by ^#^)
 
 
 

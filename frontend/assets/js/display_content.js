@@ -17,10 +17,17 @@
             switch (line) {
                 /* display the username */
                 case '0':
-                    document.write('<h2 id="published_user'+ line +'" style="margin-right: 156px;padding-right: 43px;">@' + post_content[line] + '</h2>');
+                    // if the username is empty, don't display it.
+                    if (post_content[line] != '') {
+                        document.write('<h2 id="published_user'+ line +'" style="margin-right: 156px;padding-right: 43px;">@' + post_content[line] + '</h2>');
+                    }
+                    else {
+                        break;
+                    }
                     break;
                 /* display the language */
                 case '1':
+                    
                     document.write('<h6 id="code_language'+ line +'" style="margin-right: 237px;">' + post_content[line] + '</h6>')
                     break;
                 /* display the likes*/

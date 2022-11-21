@@ -3,7 +3,7 @@
 import asyncio
 import websockets
 
-from database_connector import get_post
+from database_connector import get_post, add_post
 
 import time
 print(time.time())
@@ -16,7 +16,9 @@ async def echo(websocket):
             get_post()
             await websocket.send(get_post.content)
         elif check == True:
-            print('add_post')
+            add_post(echo.message)
+        else:
+            print("Error")
 
 async def main():
     async with websockets.serve(echo, "localhost", 10):
