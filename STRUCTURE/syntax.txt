@@ -9,6 +9,15 @@ add_post /--/ username /--/ language /--/ title  /--/content (split by ^#^)
 
 
 Commants from JS to Python server
+commant can only 8 caracter long
 
-get_post ---> Server send client post
-add_post ---> Client send server post and server add them to database
+get_post ---> Server send client post                                   ---> post_id /--/ username /--/ language /--/ likes /--/ date /--/ title /--/content (split by ^#^) ^$^ NEW post
+add_post ---> Client send server post and server add them to database   ---> add_post /--/ username /--/ password /--/ language /--/ title  /--/content (split by ^#^)
+get_logi ---> Server send client login                                  ---> get_logi /--/ username /--/ password
+
+    how login work
+    when client send get_logi to server
+    server check if username and password is correct
+    if correct server send client True or False
+    if True client save username and password in local storage
+    if False client show error message

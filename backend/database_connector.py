@@ -33,7 +33,25 @@ def add_post(post_content):
     now = now.strftime("%Y-%m-%d %H:%M:%S")
 
     connector()
-    server_command, username, content_language, title, content = post_content.split('/--/')
-    connector.mycursor.execute(f'INSERT INTO post (username, content_language, content, title, likes, createt_at) VALUES ("{username}", "{content_language}", "{content}", "{title}", 0, "{now}")')
-    connector.mydb.commit()
+    server_command, username, password, content_language, title, content = post_content.split('/--/')
+    connector.mycursor.execute(f'SELECT * FROM user WHERE username = "{username}" AND password = "{password}"')
+    login_data = connector.mycursor.fetchall()
+    if login_data:
+        connector.mycursor.execute(f'INSERT INTO post (username, content_language, content, title, likes, createt_at) VALUES ("{username}", "{content_language}", "{content}", "{title}", 0, "{now}")')
+        connector.mydb.commit()
+
+
+def get_logi(login_content):
+    connector()
+    # if username and password is correct return True, if not return False
+    server_command, username, password = login_content.split('/--/')
+    connector.mycursor.execute(f'SELECT * FROM user WHERE username = "{username}" AND password = "{password}"')
+    login_data = connector.mycursor.fetchall()
+    if login_data:
+        get_logi.login = True
+    else:
+        get_logi.login = False
+
+
+
 

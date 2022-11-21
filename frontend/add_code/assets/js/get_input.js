@@ -7,25 +7,43 @@ const ws = new WebSocket('ws://localhost:10');  // connect to ws server
 ws.addEventListener('open', () => {
     console.log('connected to server');
 });
+
+// check if the user is logged in and if not redirect to the login page
+var username_check = localStorage.getItem('login_user');
+var password_check= localStorage.getItem('login_password');
+if (username_check == null && password_check == null) {
+    alert("You are not logged in");
+    window.location.href = "../login_site/login.html";
+}
+
 function getinput() {
+
         // get the input value
-        var username = document.getElementById("user").value;
-        var CodeLanguage = document.getElementById("language").value;
-        var title = document.getElementById("title").value;
-        var Code = document.getElementById("code").value;
+        var username = localStorage.getItem('login_user');
+        var password = localStorage.getItem('login_password');
+        if (username != null && password != null) {
+            var CodeLanguage = document.getElementById("language").value;
+            var title = document.getElementById("title").value;
+            var Code = document.getElementById("code").value;
 
-        // get value form code input field and add a ^#^ to the end of a line
-        var Code = Code.replace(/\n/g, "^#^");
+            // get value form code input field and add a ^#^ to the end of a line
+            var Code = Code.replace(/\n/g, "^#^");
+            // replace all " with ' in code otherwise mysql cant handle it
+            var Code = Code.replace(/"/g, "'");
+            // make the inputs server readable
+            var message_server_readable = 'add_post' + '/--/' + username + '/--/' + password + '/--/' + CodeLanguage + '/--/'+ title +'/--/' + Code;
 
-        // make the inputs server readable
-        var message_server_readable = 'add_post' + '/--/' + username + '/--/' + CodeLanguage + '/--/'+ title +'/--/' + Code;
+            ws.send(message_server_readable); // send server that we want to get the posts
 
-        ws.send(message_server_readable); // send server that we want to get the posts
+            // clear the input fields
+            document.getElementById("language").value = "";
+            document.getElementById("title").value = "";
+            document.getElementById("code").value = "";
+            ws.CLOSED;
+        }
+        else {
+            // go to login page if the user is not logged in
+            window.location.href = "../login_site/login.html";
+        }
 
-        // clear the input fields
-        document.getElementById("user").value = "";
-        document.getElementById("language").value = "";
-        document.getElementById("title").value = "";
-        document.getElementById("code").value = "";
-        ws.CLOSED;
 };
