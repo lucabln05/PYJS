@@ -3,6 +3,11 @@
 import asyncio
 import websockets
 from database_connector import get_post, add_post, get_logi, get_usco
+import pathlib
+import ssl
+
+# make ssl context with certificate and key
+
 
 
 async def echo(websocket):
@@ -22,9 +27,15 @@ async def echo(websocket):
             await websocket.send(get_usco.content)
         else:
             print("Error")
+ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+ssl_context.load_cert_chain(
+    pathlib.Path(__file__).with_name("certificate.crt"),
+    pathlib.Path(__file__).with_name("privatekey.key"),
+)
+
 
 async def main():
-    async with websockets.serve(echo, "192.168.178.179", 10):
+    async with websockets.serve(echo, "192.168.178.179", 10, ssl=ssl_context):
         await asyncio.Future()  # run forever
 
 asyncio.run(main())
