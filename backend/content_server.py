@@ -2,11 +2,8 @@
 
 import asyncio
 import websockets
-
 from database_connector import get_post, add_post, get_logi
 
-import time
-print(time.time())
 
 async def echo(websocket):
     async for message in websocket:
@@ -25,7 +22,7 @@ async def echo(websocket):
             print("Error")
 
 async def main():
-    async with websockets.serve(echo, "localhost", 10):
+    async with websockets.serve(echo, "192.168.178.179", 10):
         await asyncio.Future()  # run forever
 
 asyncio.run(main())
