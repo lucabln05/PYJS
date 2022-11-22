@@ -13,7 +13,6 @@ async def echo(websocket):
             get_post()
             await websocket.send(get_post.content)
         elif command == 'add_post':  
-            print(echo.message)
             add_post(echo.message)
         elif command == 'get_logi':
             get_logi(echo.message)

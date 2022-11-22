@@ -13,7 +13,7 @@ var username_check = localStorage.getItem('login_user');
 var password_check= localStorage.getItem('login_password');
 if (username_check == null && password_check == null) {
     alert("You are not logged in");
-    window.location.href = "../login_site/login.html";
+    window.location.href = "../account_site/account.html";
 }
 
 function getinput() {

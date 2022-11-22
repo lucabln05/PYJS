@@ -15,10 +15,9 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a id="test" class="nav-link" href="../index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../add_code/add_code.html">Share</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Login</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Share</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../account_site/account.html">Account</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://github.com/lucabln05/PYJS">GitHub</a></li>
-                    
                 </ul>
             </div>
         </div>
@@ -30,12 +29,11 @@
                     <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                         <div class="card mb-5">
                             <div class="card-body p-sm-5">
-                                <h2 class="text-center text-dark mb-4">Login</h2>
-                                    <div class="mb-3"><input class="form-control" type="text" id="input_user" name="username" placeholder="Username"></div>
-                                    <div class="mb-3"><input class="form-control" type="password" id="input_password" name="password" placeholder="Password"></div>
-                                    <div><button class="btn btn-primary d-block w-100" onclick="login_request();">Login</button></div>
-                                    <p id='login_message' style="color: green;"></p>
-                                    <p id='logged_in_username' style="color: green;"></p>
+                                <h2 class="text-center text-dark mb-4">Share Code</h2>
+                                    <div class="mb-3"><input class="form-control" type="text" id="language" name="Code-Language" placeholder="Code-Language"></div>
+                                    <div class="mb-3"><input class="form-control" type="text" id="title" name="title" placeholder="Title"></div>
+                                    <div class="mb-3"><textarea class="form-control" id="code" name="message" rows="10" placeholder="Code"></textarea></div>
+                                    <div><button class="btn btn-primary d-block w-100" onclick="getinput();">Publish</button></div>
                             </div>
                         </div>
                     </div>
@@ -43,8 +41,8 @@
             </div>
         </section>
     </div>
-    <script src="assets/js/check_if_login.js"></script>
-    <script src="assets/js/login_request.js"></script>
+    <script src="assets/js/get_input.js"></script>
+
 </body>
 
 </html>
