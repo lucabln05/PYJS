@@ -1,7 +1,7 @@
 //this script read out the input fields and send the data to the server
 
 
-const ws = new WebSocket('ws://192.168.178.179:10');  // connect to ws server 
+const ws = new WebSocket('wss://192.168.178.179:10');  // connect to ws server 
 
 // if connectet send a message to the server, end refresh the connection
 ws.addEventListener('open', () => {
