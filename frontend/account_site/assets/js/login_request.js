@@ -24,7 +24,7 @@ function login_request() {
         localStorage.setItem('login_user', username);   // store the message in local storage')
         localStorage.setItem('login_password', password);   // store the message in local storage')
         document.getElementById("login_message").innerHTML = "Login successful";
-        window.location.href = "../add_code/add_code.html"; // redirect to the main page
+        window.location.href = "../share_site/share.html"; // redirect to the main page
     }
     else {
         document.getElementById("input_password").value = ""; // clear the password field

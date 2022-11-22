@@ -2,7 +2,7 @@
 //
 function display_content() {
     // get the data from the local storage where the content_socket_client.js stored it
-        var raw_content =  localStorage.getItem('raw_data');
+        var raw_content =  localStorage.getItem('raw_user_data');
         // seperate the post from the raw content.
         var user_posts = raw_content.split('^$^');
 
@@ -18,18 +18,17 @@ function display_content() {
                     
                     /* get the post_id */
                     case '0':
-                        document.write('<h1 style="display:none;">' + post_content[line] + '</h1>');
-                        break;
-                    /* display the username */
-                    case '1':
-                        // if the username is empty, don't display it.
+                    // if the post is empty, don't display it.
                         if (post_content[line] != '') {
-                            document.write('<h2 id="published_user'+ line +'" style="margin-right: 156px;padding-right: 43px;">@' + post_content[line] + '</h2>');
+                            document.write('<h6 id='+post_content[line]+'>Post ID:'+ post_content[line] + '</h6>');
+                            break;
                         }
                         else {
                             break;
                         }
-                        break;
+                    /* display the username */
+                    case '1':
+                            document.write('<h2 id="published_user'+ line +'" style="margin-right: 156px;padding-right: 43px;">@' + post_content[line] + '</h2>');
                     /* display the language */
                     case '2':
                         

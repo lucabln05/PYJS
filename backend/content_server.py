@@ -2,7 +2,7 @@
 
 import asyncio
 import websockets
-from database_connector import get_post, add_post, get_logi
+from database_connector import get_post, add_post, get_logi, get_usco
 
 
 async def echo(websocket):
@@ -17,6 +17,9 @@ async def echo(websocket):
         elif command == 'get_logi':
             get_logi(echo.message)
             await websocket.send(str(get_logi.login))
+        elif command == 'get_usco':
+            get_usco(echo.message)
+            await websocket.send(get_usco.content)
         else:
             print("Error")
 

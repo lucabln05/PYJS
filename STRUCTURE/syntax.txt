@@ -1,19 +1,27 @@
-post content from server to client format
-
-post_id /--/ username /--/ language /--/ likes /--/ date /--/ title /--/content (split by ^#^) ^$^ NEW post
-
-post content add from server to client format
-
-add_post /--/ username /--/ language /--/ title  /--/content (split by ^#^)
+Mysql format
+content is split end of the line with ^#^
 
 
+LocalStorage format
+content (home_site) save as raw_data
+content (account_content_site) save as raw_user_data
+
+login data (account_site)
+username is saved as login_user
+password is saved as login_password
+
+
+
+
+
+Communicaton format
 
 Commants from JS to Python server
 commant can only 8 caracter long
 
-get_post ---> Server send client post                                   ---> post_id /--/ username /--/ language /--/ likes /--/ date /--/ title /--/content (split by ^#^) ^$^ NEW post
-add_post ---> Client send server post and server add them to database   ---> add_post /--/ username /--/ password /--/ language /--/ title  /--/content (split by ^#^)
-get_logi ---> Server send client login                                  ---> get_logi /--/ username /--/ password
+get_post ---> Server send client post      (home_site)                             ---> post_id /--/ username /--/ language /--/ likes /--/ date /--/ title /--/content (split by ^#^) ^$^ NEW post
+add_post ---> Client send server post and server add them to database (share_site)  ---> add_post /--/ username /--/ password /--/ language /--/ title  /--/content (split by ^#^)
+get_logi ---> Server send client login       (account_site)                           ---> get_logi /--/ username /--/ password
 
     how login work
     when client send get_logi to server
@@ -21,3 +29,5 @@ get_logi ---> Server send client login                                  ---> get
     if correct server send client True or False
     if True client save username and password in local storage
     if False client show error message
+
+get_usco ---> Server send client user content (account_content_site)                       <--- get_usco /--/ username /--/ password           Server send: ---> post_id /--/ username /--/ language /--/ likes /--/ date /--/ title /--/content (split by ^#^) ^$^ NEW post
