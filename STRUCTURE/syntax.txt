@@ -14,6 +14,7 @@ password is saved as login_password
 WebSocket format
 wss is used for secure connection
 for wss you musst use the same cert as for the webserver 
+only work with the ip address of the server on the cert
 
 
 
